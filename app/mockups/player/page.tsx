@@ -40,7 +40,7 @@ export default function PlayerDashboardMockup() {
         {/* Profile Header Card */}
         <div className="bg-card rounded-2xl border border-border overflow-hidden mb-6">
           {/* Banner */}
-          <div className="h-24 bg-gradient-to-r from-primary to-primary/80 relative">
+          <div className="h-24 bg-linear-to-r from-primary to-primary/80 relative">
             <div className="absolute -bottom-10 left-6">
               <div className="w-20 h-20 rounded-2xl bg-accent text-accent-foreground flex items-center justify-center text-2xl font-bold border-4 border-card">
                 {playerInfo.avatar}
