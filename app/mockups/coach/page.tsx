@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const players = [
@@ -12,8 +13,8 @@ const players = [
 ];
 
 const upcomingMatches = [
-  { opponent: "Atlanta FC", date: "Aug 22, 2026", time: "3:00 PM", venue: "Home Stadium" },
-  { opponent: "Miami Heat", date: "Aug 28, 2026", time: "7:00 PM", venue: "Away" },
+  { opponent: "Atlanta Lions FC", date: "Aug 22, 2026", time: "3:00 PM", venue: "Home Stadium" },
+  { opponent: "Cincy FC", date: "Aug 28, 2026", time: "7:00 PM", venue: "Away" },
 ];
 
 export default function CoachDashboardMockup() {
@@ -26,11 +27,11 @@ export default function CoachDashboardMockup() {
         {/* Team Header */}
         <div className="p-5 border-b border-border">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-white font-bold text-lg">
-              H
+            <div className="w-12 h-12 rounded-full bg-white ring-2 ring-accent/50 overflow-hidden flex items-center justify-center shrink-0">
+              <Image src="/assets/teams/hsc.jpg" alt="Houston Sports Club" width={48} height={48} className="object-cover" />
             </div>
             <div>
-              <h2 className="font-semibold text-foreground">Houston FC</h2>
+              <h2 className="font-semibold text-foreground">Houston Sports Club</h2>
               <p className="text-xs text-muted-foreground">Team Manager</p>
             </div>
           </div>

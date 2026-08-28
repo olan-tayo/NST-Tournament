@@ -1,11 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const mockups = [
   {
     title: "Login Page",
-    description: "Phone + password authentication with OTP verification",
+    description: "Phone number sign-in with an OTP PIN — no password",
     href: "/mockups/login",
     color: "bg-primary",
+  },
+  {
+    title: "Sign Up",
+    description: "Choose your role and verify your phone to get started",
+    href: "/mockups/signup",
+    color: "bg-secondary",
   },
   {
     title: "Admin Dashboard",
@@ -43,6 +50,9 @@ export default function MockupsIndex() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
+        <span className="inline-flex w-16 h-16 rounded-full bg-white ring-2 ring-accent/70 overflow-hidden items-center justify-center mb-4">
+          <Image src="/assets/logo.png" alt="NST-USA" width={64} height={64} className="object-cover scale-125" />
+        </span>
         <h1 className="text-4xl font-bold text-foreground mb-3">
           NST Tournament Portal
         </h1>

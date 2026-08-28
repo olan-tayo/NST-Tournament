@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a2e;
-  --primary: #1a1a2e;
+  --background: #0a1834;
+  --foreground: #f4f4f5;
+  --primary: #0069b0;
   --primary-foreground: #ffffff;
-  --accent: #e94560;
-  --accent-foreground: #ffffff;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --card: #ffffff;
-  --card-foreground: #1a1a2e;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
+  --accent: #f5b942;
+  --accent-foreground: #1a1204;
+  --secondary: #00a7d1;
+  --secondary-foreground: #ffffff;
+  --muted: #142a52;
+  --muted-foreground: #9db2d4;
+  --card: #0f2247;
+  --card-foreground: #f4f4f5;
+  --border: #22355e;
+  --input: #26396a;
   --success: #22c55e;
-  --warning: #f59e0b;
+  --warning: #eab308;
   --error: #ef4444;
-  --ring: #e94560;
+  --ring: #f5b942;
 }
 
 @theme inline {
@@ -26,6 +28,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
@@ -36,7 +40,8 @@
   --color-warning: var(--warning);
   --color-error: var(--error);
   --color-ring: var(--ring);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-archivo);
+  --font-display: var(--font-anton);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -44,4 +49,81 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #ffe8ab 0%, var(--accent) 55%, #d99420 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-radial-glow {
+  background:
+    radial-gradient(60% 50% at 15% 0%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 70%),
+    radial-gradient(50% 45% at 100% 10%, color-mix(in srgb, var(--secondary) 18%, transparent) 0%, transparent 70%);
+}
+
+.bg-grid-lines {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--foreground) 4%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(70% 60% at 50% 0%, black 0%, transparent 75%);
+}
+
+.shadow-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 32px -16px rgba(0, 0, 0, 0.45);
+}
+
+.shadow-glow-accent {
+  box-shadow: 0 8px 24px -8px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s ease both;
 }

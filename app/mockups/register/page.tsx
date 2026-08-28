@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const positions = [
@@ -58,16 +60,15 @@ export default function PlayerRegistrationMockup() {
       <div className="max-w-2xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center mx-auto mb-4">
-            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
+          <div className="w-14 h-14 rounded-full bg-white ring-4 ring-accent/70 overflow-hidden flex items-center justify-center mx-auto mb-4">
+            <Image src="/assets/logo.png" alt="NST-USA" width={56} height={56} className="object-cover scale-125" />
           </div>
-          <h1 className="text-2xl font-bold text-foreground">Join Houston FC</h1>
+          <h1 className="text-2xl font-bold text-foreground">Join Houston Sports Club</h1>
           <p className="text-muted-foreground mt-1">Complete your player registration</p>
         </div>
 
         {/* Progress Steps */}
+        {step <= 3 && (
         <div className="flex items-center justify-center gap-2 mb-8">
           {[1, 2, 3].map((s) => (
             <div key={s} className="flex items-center">
@@ -94,6 +95,7 @@ export default function PlayerRegistrationMockup() {
             </div>
           ))}
         </div>
+        )}
 
         {/* Form Card */}
         <div className="bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
@@ -191,7 +193,7 @@ export default function PlayerRegistrationMockup() {
                       H
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Houston FC</p>
+                      <p className="font-medium text-foreground">Houston Sports Club</p>
                       <p className="text-xs text-muted-foreground">Pre-assigned from invitation</p>
                     </div>
                   </div>
@@ -266,11 +268,13 @@ export default function PlayerRegistrationMockup() {
             </div>
           )}
 
-          {/* Step 3: Country & Password */}
+          {/* Step 3: Country & Terms */}
           {step === 3 && (
             <div className="p-6">
               <h2 className="text-lg font-semibold text-foreground mb-1">Final Details</h2>
-              <p className="text-sm text-muted-foreground mb-6">Country and account security</p>
+              <p className="text-sm text-muted-foreground mb-6">
+                Your phone number is already verified — just a couple more details.
+              </p>
 
               <div className="space-y-4">
                 <div>
@@ -284,24 +288,6 @@ export default function PlayerRegistrationMockup() {
                     ))}
                     <option value="other">Other</option>
                   </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Create Password</label>
-                  <input
-                    type="password"
-                    placeholder="Minimum 8 characters"
-                    className="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">Confirm Password</label>
-                  <input
-                    type="password"
-                    placeholder="Re-enter your password"
-                    className="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
-                  />
                 </div>
 
                 <div className="pt-2">
@@ -324,10 +310,35 @@ export default function PlayerRegistrationMockup() {
                 >
                   Back
                 </button>
-                <button className="px-6 py-2.5 bg-success text-white font-medium rounded-lg hover:bg-success/90 transition-colors">
+                <button
+                  onClick={() => setStep(4)}
+                  className="px-6 py-2.5 bg-success text-white font-medium rounded-lg hover:bg-success/90 transition-colors"
+                >
                   Complete Registration
                 </button>
               </div>
+            </div>
+          )}
+
+          {/* Step 4: Success */}
+          {step === 4 && (
+            <div className="p-10 text-center">
+              <div className="w-16 h-16 rounded-full bg-success/15 text-success flex items-center justify-center mx-auto mb-5">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h2 className="text-lg font-semibold text-foreground mb-1">You&apos;re on the roster!</h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                Your registration for Houston Sports Club is complete. Your coach will confirm your
+                jersey number and position before the group stage.
+              </p>
+              <Link
+                href="/mockups/player"
+                className="inline-flex items-center justify-center px-6 py-2.5 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 transition-colors"
+              >
+                Go to My Dashboard
+              </Link>
             </div>
           )}
         </div>

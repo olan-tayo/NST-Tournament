@@ -2,7 +2,7 @@
 
 const playerInfo = {
   name: "Marcus Johnson",
-  team: "Houston FC",
+  team: "Houston Sports Club",
   position: "Striker (ST)",
   secondaryPosition: "Center Forward (CF)",
   jersey: 9,
@@ -21,15 +21,15 @@ const stats = {
 };
 
 const upcomingMatches = [
-  { opponent: "Atlanta FC", date: "Aug 22, 2026", time: "3:00 PM", venue: "Home Stadium", isHome: true },
-  { opponent: "Miami Heat", date: "Aug 28, 2026", time: "7:00 PM", venue: "Miami Arena", isHome: false },
-  { opponent: "Dallas United", date: "Sep 3, 2026", time: "5:00 PM", venue: "Home Stadium", isHome: true },
+  { opponent: "Atlanta Lions FC", date: "Aug 22, 2026", time: "3:00 PM", venue: "Home Stadium", isHome: true },
+  { opponent: "Cincy FC", date: "Aug 28, 2026", time: "7:00 PM", venue: "Miami Arena", isHome: false },
+  { opponent: "Houston United FC", date: "Sep 3, 2026", time: "5:00 PM", venue: "Home Stadium", isHome: true },
 ];
 
 const recentMatches = [
-  { opponent: "Chicago Fire", result: "W", score: "3 - 1", goals: 2, date: "Aug 15, 2026" },
-  { opponent: "LA Galaxy", result: "D", score: "1 - 1", goals: 1, date: "Aug 10, 2026" },
-  { opponent: "Atlanta FC", result: "W", score: "2 - 0", goals: 0, date: "Aug 5, 2026" },
+  { opponent: "FC Spartan", result: "W", score: "3 - 1", goals: 2, date: "Aug 15, 2026" },
+  { opponent: "Team Opopo", result: "D", score: "1 - 1", goals: 1, date: "Aug 10, 2026" },
+  { opponent: "Atlanta Lions FC", result: "W", score: "2 - 0", goals: 0, date: "Aug 5, 2026" },
 ];
 
 export default function PlayerDashboardMockup() {

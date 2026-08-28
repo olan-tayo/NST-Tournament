@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const mockupPages = [
   { name: "Login", href: "/mockups/login" },
+  { name: "Sign Up", href: "/mockups/signup" },
   { name: "Admin Dashboard", href: "/mockups/admin" },
   { name: "Coach Dashboard", href: "/mockups/coach" },
   { name: "Player Dashboard", href: "/mockups/player" },
@@ -25,7 +27,10 @@ export default function MockupsLayout({
       <nav className="bg-primary text-primary-foreground sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-14">
-            <Link href="/mockups" className="font-semibold text-lg">
+            <Link href="/mockups" className="flex items-center gap-2 font-semibold text-lg shrink-0">
+              <span className="w-8 h-8 rounded-full bg-white ring-2 ring-accent/70 overflow-hidden flex items-center justify-center">
+                <Image src="/assets/logo.png" alt="NST-USA" width={32} height={32} className="object-cover scale-125" />
+              </span>
               NST Mockups
             </Link>
             <div className="flex items-center gap-1">

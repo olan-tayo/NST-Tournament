@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const match = {
-  home: "Houston FC",
-  away: "Atlanta FC",
+  home: "Houston Sports Club",
+  away: "Atlanta Lions FC",
   venue: "NRG Stadium",
   date: "Aug 22, 2026",
   time: "3:00 PM",
@@ -47,8 +48,8 @@ export default function DelegateDashboardMockup() {
 
           <div className="flex items-center justify-between">
             <div className="text-center flex-1">
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-white/10 flex items-center justify-center text-2xl font-bold mb-2">
-                H
+              <div className="w-16 h-16 mx-auto rounded-full bg-white overflow-hidden flex items-center justify-center mb-2">
+                <Image src="/assets/teams/hsc.jpg" alt={match.home} width={64} height={64} className="object-cover" />
               </div>
               <h2 className="font-semibold text-lg">{match.home}</h2>
             </div>
@@ -63,8 +64,8 @@ export default function DelegateDashboardMockup() {
             </div>
 
             <div className="text-center flex-1">
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-white/10 flex items-center justify-center text-2xl font-bold mb-2">
-                A
+              <div className="w-16 h-16 mx-auto rounded-full bg-white overflow-hidden flex items-center justify-center mb-2">
+                <Image src="/assets/teams/atl.jpeg" alt={match.away} width={64} height={64} className="object-cover" />
               </div>
               <h2 className="font-semibold text-lg">{match.away}</h2>
             </div>

@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function LoginMockup() {
-  const [step, setStep] = useState<"credentials" | "otp">("credentials");
+  const [step, setStep] = useState<"phone" | "otp">("phone");
 
   return (
     <div className="min-h-[calc(100vh-56px)] flex">
@@ -12,13 +14,11 @@ export default function LoginMockup() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M30%200L60%2030L30%2060L0%2030z%22%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%2F%3E%3C%2Fsvg%3E')] opacity-50" />
         <div className="relative z-10 flex flex-col justify-center px-16">
           <div className="mb-8">
-            <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center mb-6">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
+            <div className="w-16 h-16 rounded-full bg-white ring-4 ring-accent/70 overflow-hidden flex items-center justify-center mb-6">
+              <Image src="/assets/logo.png" alt="NST-USA" width={64} height={64} className="object-cover scale-125" />
             </div>
             <h1 className="text-4xl font-bold text-white mb-3">
-              NST Tournament
+              NST-USA
             </h1>
             <p className="text-white/70 text-lg max-w-md">
               Manage your teams, track player performance, and coordinate matches all in one place.
@@ -59,22 +59,26 @@ export default function LoginMockup() {
         <div className="w-full max-w-sm">
           {/* Mobile Logo */}
           <div className="lg:hidden text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center mx-auto mb-4">
-              <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
+            <div className="w-14 h-14 rounded-full bg-white ring-4 ring-accent/70 overflow-hidden flex items-center justify-center mx-auto mb-4">
+              <Image src="/assets/logo.png" alt="NST-USA" width={56} height={56} className="object-cover scale-125" />
             </div>
-            <h1 className="text-2xl font-bold text-foreground">NST Tournament</h1>
+            <h1 className="text-2xl font-bold text-foreground">NST-USA</h1>
           </div>
 
-          {step === "credentials" ? (
+          {step === "phone" ? (
             <>
               <div className="mb-8">
                 <h2 className="text-2xl font-semibold text-foreground">Welcome back</h2>
-                <p className="text-muted-foreground mt-1">Sign in to your account</p>
+                <p className="text-muted-foreground mt-1">Sign in with your phone number</p>
               </div>
 
-              <form className="space-y-5">
+              <form
+                className="space-y-5"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setStep("otp");
+                }}
+              >
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5">
                     Phone Number
@@ -89,42 +93,23 @@ export default function LoginMockup() {
                       className="w-full h-11 pl-10 pr-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
                     />
                   </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    placeholder="Enter your password"
-                    className="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
-                  />
-                </div>
-
-                <div className="flex items-center justify-between text-sm">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="checkbox" className="w-4 h-4 rounded border-input accent-accent" />
-                    <span className="text-muted-foreground">Remember me</span>
-                  </label>
-                  <button type="button" className="text-accent hover:underline">
-                    Forgot password?
-                  </button>
+                  <p className="text-xs text-muted-foreground mt-1.5">
+                    We&apos;ll text a one-time PIN to verify it&apos;s you.
+                  </p>
                 </div>
 
                 <button
-                  type="button"
-                  onClick={() => setStep("otp")}
+                  type="submit"
                   className="w-full h-11 bg-accent text-accent-foreground font-medium rounded-lg hover:bg-accent/90 transition-colors"
                 >
-                  Continue
+                  Send PIN
                 </button>
               </form>
             </>
           ) : (
             <>
               <button
-                onClick={() => setStep("credentials")}
+                onClick={() => setStep("phone")}
                 className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 transition-colors"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,22 +119,23 @@ export default function LoginMockup() {
               </button>
 
               <div className="mb-8">
-                <h2 className="text-2xl font-semibold text-foreground">Verify your phone</h2>
+                <h2 className="text-2xl font-semibold text-foreground">Enter your PIN</h2>
                 <p className="text-muted-foreground mt-1">
-                  We sent a code to +1 (555) 123-4567
+                  We sent a 6-digit PIN to +1 (555) 123-4567
                 </p>
               </div>
 
               <form className="space-y-5">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1.5">
-                    Enter OTP Code
+                    One-Time PIN
                   </label>
                   <div className="flex gap-3">
                     {[...Array(6)].map((_, i) => (
                       <input
                         key={i}
-                        type="text"
+                        type="password"
+                        inputMode="numeric"
                         maxLength={1}
                         className="w-11 h-12 text-center text-lg font-semibold rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
                       />
@@ -165,7 +151,7 @@ export default function LoginMockup() {
                 </button>
 
                 <p className="text-center text-sm text-muted-foreground">
-                  Didn't receive a code?{" "}
+                  Didn't receive a PIN?{" "}
                   <button type="button" className="text-accent hover:underline">
                     Resend
                   </button>
@@ -175,7 +161,10 @@ export default function LoginMockup() {
           )}
 
           <p className="text-center text-sm text-muted-foreground mt-8">
-            Don't have an account? Contact your team admin for an invitation.
+            New to NST-USA?{" "}
+            <Link href="/mockups/signup" className="text-accent hover:underline font-medium">
+              Create an account
+            </Link>
           </p>
         </div>
       </div>

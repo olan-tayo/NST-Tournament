@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const sidebarItems = [
@@ -19,16 +20,16 @@ const stats = [
 ];
 
 const recentMatches = [
-  { home: "Houston FC", away: "Atlanta FC", score: "2 - 1", date: "Aug 18, 2026", status: "completed" },
-  { home: "Dallas United", away: "Miami Heat", score: "0 - 0", date: "Aug 20, 2026", status: "live" },
-  { home: "Chicago Fire", away: "LA Galaxy", score: "- vs -", date: "Aug 22, 2026", status: "upcoming" },
+  { home: "Houston Sports Club", away: "Atlanta Lions FC", score: "2 - 1", date: "Aug 18, 2026", status: "completed" },
+  { home: "Houston United FC", away: "Cincy FC", score: "0 - 0", date: "Aug 20, 2026", status: "live" },
+  { home: "FC Spartan", away: "Team Opopo", score: "- vs -", date: "Aug 22, 2026", status: "upcoming" },
 ];
 
 const topScorers = [
-  { name: "Marcus Johnson", team: "Houston FC", goals: 8, avatar: "MJ" },
-  { name: "David Okonkwo", team: "Atlanta FC", goals: 6, avatar: "DO" },
-  { name: "Carlos Rodriguez", team: "Dallas United", goals: 5, avatar: "CR" },
-  { name: "James Wilson", team: "Miami Heat", goals: 5, avatar: "JW" },
+  { name: "Marcus Johnson", team: "Houston Sports Club", goals: 8, avatar: "MJ" },
+  { name: "David Okonkwo", team: "Atlanta Lions FC", goals: 6, avatar: "DO" },
+  { name: "Carlos Rodriguez", team: "Houston United FC", goals: 5, avatar: "CR" },
+  { name: "James Wilson", team: "Cincy FC", goals: 5, avatar: "JW" },
 ];
 
 function Icon({ name }: { name: string }) {
@@ -61,8 +62,8 @@ export default function AdminDashboardMockup() {
       <aside className={`${sidebarOpen ? "w-64" : "w-20"} bg-primary text-primary-foreground flex flex-col transition-all duration-200`}>
         {/* Logo */}
         <div className="h-16 flex items-center px-4 border-b border-white/10">
-          <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center font-bold text-lg">
-            N
+          <div className="w-10 h-10 rounded-full bg-white ring-2 ring-accent/70 overflow-hidden flex items-center justify-center shrink-0">
+            <Image src="/assets/logo.png" alt="NST-USA" width={40} height={40} className="object-cover scale-125" />
           </div>
           {sidebarOpen && <span className="ml-3 font-semibold text-lg">NST Admin</span>}
         </div>
