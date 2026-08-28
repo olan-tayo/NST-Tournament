@@ -57,11 +57,11 @@ export default function AdminDashboardMockup() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="min-h-[calc(100vh-56px)] flex bg-muted">
+    <div className="dash-light min-h-[calc(100vh-56px)] flex bg-background">
       {/* Sidebar */}
-      <aside className={`${sidebarOpen ? "w-64" : "w-20"} bg-primary text-primary-foreground flex flex-col transition-all duration-200`}>
+      <aside className={`${sidebarOpen ? "w-64" : "w-20"} bg-card border-r border-border text-foreground flex flex-col transition-all duration-200`}>
         {/* Logo */}
-        <div className="h-16 flex items-center px-4 border-b border-white/10">
+        <div className="h-16 flex items-center px-4 border-b border-border">
           <div className="w-10 h-10 rounded-full bg-white ring-2 ring-accent/70 overflow-hidden flex items-center justify-center shrink-0">
             <Image src="/assets/logo.png" alt="NST-USA" width={40} height={40} className="object-cover scale-125" />
           </div>
@@ -75,8 +75,8 @@ export default function AdminDashboardMockup() {
               key={item.name}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                 item.active
-                  ? "bg-white/15 text-white"
-                  : "text-white/70 hover:bg-white/10 hover:text-white"
+                  ? "bg-accent/10 text-accent"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
               }`}
             >
               <Icon name={item.icon} />
@@ -84,7 +84,7 @@ export default function AdminDashboardMockup() {
                 <>
                   <span className="flex-1 text-left text-sm font-medium">{item.name}</span>
                   {item.count && (
-                    <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                    <span className="text-xs bg-muted px-2 py-0.5 rounded-full">
                       {item.count}
                     </span>
                   )}
@@ -95,15 +95,15 @@ export default function AdminDashboardMockup() {
         </nav>
 
         {/* User */}
-        <div className="p-3 border-t border-white/10">
+        <div className="p-3 border-t border-border">
           <div className="flex items-center gap-3 px-3 py-2">
-            <div className="w-9 h-9 rounded-full bg-accent flex items-center justify-center text-sm font-medium">
+            <div className="w-9 h-9 rounded-full bg-accent/15 text-accent flex items-center justify-center text-sm font-medium">
               AD
             </div>
             {sidebarOpen && (
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium truncate">Admin User</p>
-                <p className="text-xs text-white/60 truncate">admin@nst.com</p>
+                <p className="text-xs text-muted-foreground truncate">admin@nst.com</p>
               </div>
             )}
           </div>

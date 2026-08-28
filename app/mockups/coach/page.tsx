@@ -21,7 +21,7 @@ export default function CoachDashboardMockup() {
   const [activeTab, setActiveTab] = useState("roster");
 
   return (
-    <div className="min-h-[calc(100vh-56px)] flex bg-muted">
+    <div className="dash-light min-h-[calc(100vh-56px)] flex bg-background">
       {/* Sidebar */}
       <aside className="w-64 bg-card border-r border-border flex flex-col">
         {/* Team Header */}

@@ -127,3 +127,17 @@ body {
 .animate-fade-up {
   animation: fade-up 0.5s ease both;
 }
+
+/* Light, white-space canvas for the operational dashboards (Admin, Coach,
+   Player, Delegate). Login/Signup/Register and the public site stay on the
+   dark navy tokens above — this class only wraps the 4 dashboard pages. */
+.dash-light {
+  --background: #f4f6f9;
+  --foreground: #101c2c;
+  --card: #ffffff;
+  --card-foreground: #101c2c;
+  --muted: #eef1f5;
+  --muted-foreground: #667080;
+  --border: #e4e8ee;
+  --input: #dbe1e8;
+}
