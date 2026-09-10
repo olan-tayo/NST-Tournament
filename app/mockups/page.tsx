@@ -53,7 +53,7 @@ export default function MockupsIndex() {
         <span className="inline-flex w-16 h-16 rounded-full bg-white ring-2 ring-accent/70 overflow-hidden items-center justify-center mb-4">
           <Image src="/assets/logo.png" alt="NST-USA" width={64} height={64} className="object-cover scale-125" />
         </span>
-        <h1 className="text-4xl font-bold text-foreground mb-3">
+        <h1 className="text-4xl font-bold text-white mb-3">
           NST Tournament Portal
         </h1>
         <p className="text-muted-foreground text-lg">
@@ -70,7 +70,7 @@ export default function MockupsIndex() {
           >
             <div className={`h-32 ${mockup.color}`} />
             <div className="p-5">
-              <h2 className="font-semibold text-lg text-foreground group-hover:text-accent transition-colors">
+              <h2 className="font-semibold text-lg text-white group-hover:text-accent transition-colors">
                 {mockup.title}
               </h2>
               <p className="text-muted-foreground text-sm mt-1">

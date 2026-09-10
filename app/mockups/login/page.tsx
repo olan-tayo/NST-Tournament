@@ -52,20 +52,20 @@ export default function LoginMockup() {
         </div>
 
         {/* Card */}
-        <div className="bg-card border border-border rounded-2xl shadow-card p-8 sm:p-10">
+        <div className="bg-primary border border-border rounded-2xl shadow-card p-8 sm:p-10">
           <div className="flex flex-col items-center text-center mb-8">
             <div className="w-16 h-16 rounded-full bg-white ring-4 ring-accent/70 shadow-glow-accent overflow-hidden flex items-center justify-center mb-4">
               <Image src="/assets/logo.png" alt="NST-USA" width={64} height={64} className="object-cover scale-125" />
             </div>
             <h1 className="font-display text-3xl uppercase tracking-tight text-foreground">
-              <span className="text-gradient-gold">NST-USA</span>
+              <span className="text-background">NST-USA</span>
             </h1>
           </div>
 
           {step === "phone" ? (
             <>
               <div className="mb-6 text-center">
-                <h2 className="text-xl font-semibold text-foreground">Welcome back</h2>
+                <h2 className="text-xl font-semibold text-gradient-gold">Welcome back</h2>
                 <p className="text-muted-foreground text-sm mt-1">Sign in with your phone number</p>
               </div>
 
@@ -77,7 +77,7 @@ export default function LoginMockup() {
                 }}
               >
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">
+                  <label className="block text-sm font-medium text-background mb-1.5">
                     Phone Number
                   </label>
                   <div className="relative">
@@ -87,7 +87,7 @@ export default function LoginMockup() {
                     <input
                       type="tel"
                       placeholder="(555) 123-4567"
-                      className="w-full h-11 pl-10 pr-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
+                      className="w-full h-11 pl-10 pr-4 rounded-lg border border-input bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
                     />
                   </div>
                   <p className="text-xs text-muted-foreground mt-1.5">

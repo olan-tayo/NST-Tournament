@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,7 +35,7 @@ export default function PublicLayout({
               <span className="w-9 h-9 rounded-full bg-white ring-2 ring-accent/70 shadow-glow-accent overflow-hidden flex items-center justify-center">
                 <Image src="/assets/logo.png" alt="NST-USA" width={36} height={36} className="object-cover scale-125" priority />
               </span>
-              <span className="font-display text-lg tracking-wide text-primary-foreground">
+              <span className="font-display text-lg tracking-wide text-background">
                 NST-USA
               </span>
             </Link>
@@ -46,11 +45,10 @@ export default function PublicLayout({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative px-3 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wide transition-colors ${
-                    pathname === item.href
-                      ? "text-primary-foreground bg-white/10"
-                      : "text-white/60 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`relative px-3 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wide transition-colors ${pathname === item.href
+                    ? "text-background bg-white/10"
+                    : "text-background hover:text-background hover:bg-white/5"
+                    }`}
                 >
                   {item.name}
                   {pathname === item.href && (
@@ -93,11 +91,10 @@ export default function PublicLayout({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3 py-2.5 rounded-md text-sm font-semibold uppercase tracking-wide transition-colors ${
-                    pathname === item.href
-                      ? "text-primary-foreground bg-white/10"
-                      : "text-white/60 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`px-3 py-2.5 rounded-md text-sm font-semibold uppercase tracking-wide transition-colors ${pathname === item.href
+                    ? "text-background bg-white/10"
+                    : "text-background hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   {item.name}
                 </Link>

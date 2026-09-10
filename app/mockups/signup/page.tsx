@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -64,7 +63,7 @@ export default function SignupMockup() {
         className="pointer-events-none select-none absolute -right-40 -top-32 w-140 h-auto opacity-[0.05] rotate-12 hidden sm:block"
       />
 
-      <div className="relative w-full max-w-md animate-fade-up">
+      <div className="relative w-full max-w-lg animate-fade-up">
         {/* Eyebrow */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1">
@@ -76,15 +75,15 @@ export default function SignupMockup() {
         </div>
 
         {/* Card */}
-        <div className="bg-card border border-border rounded-2xl shadow-card p-8 sm:p-10">
+        <div className="bg-primary border border-border rounded-2xl shadow-card p-8 sm:p-10">
           <div className="flex flex-col items-center text-center mb-8">
             <div className="w-16 h-16 rounded-full bg-white ring-4 ring-accent/70 shadow-glow-accent overflow-hidden flex items-center justify-center mb-4">
               <Image src="/assets/logo.png" alt="NST-USA" width={64} height={64} className="object-cover scale-125" />
             </div>
             <h1 className="font-display text-3xl uppercase tracking-tight text-foreground">
-              <span className="text-gradient-gold">NST-USA</span>
+              <span className="text-background">NST-USA</span>
             </h1>
-            <p className="text-muted-foreground text-sm mt-1">
+            <p className="text-gradient-gold text-sm font-semibold mt-1">
               {step === "details" && "Create Account"}
               {step === "otp" && "Verify Your Phone"}
               {step === "done" && "Almost There"}
@@ -101,7 +100,7 @@ export default function SignupMockup() {
                 }}
               >
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">
+                  <label className="block text-sm font-medium text-background mb-1.5">
                     Phone Number
                   </label>
                   <div className="relative">
@@ -111,19 +110,19 @@ export default function SignupMockup() {
                     <input
                       type="tel"
                       placeholder="(555) 123-4567"
-                      className="w-full h-11 pl-10 pr-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
+                      className="w-full h-11 pl-10 pr-4 rounded-lg border border-input bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1.5">
+                  <label className="block text-sm font-medium text-background mb-1.5">
                     Full Name
                   </label>
                   <input
                     type="text"
                     placeholder="Your full name"
-                    className="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
+                    className="w-full h-11 px-4 rounded-lg border border-input bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-accent transition-colors"
                   />
                 </div>
 
@@ -144,17 +143,15 @@ export default function SignupMockup() {
                     key={r.id}
                     type="button"
                     onClick={() => setRole(r.id)}
-                    className={`text-left px-3 py-2.5 rounded-lg border text-sm font-semibold uppercase tracking-wide transition-colors ${
-                      role === r.id
-                        ? "bg-accent text-accent-foreground border-accent"
-                        : "bg-background text-foreground border-border hover:border-accent/50"
-                    }`}
+                    className={`text-left px-3 py-2.5 rounded-lg border text-sm cursor-pointer font-semibold uppercase tracking-wide transition-colors ${role === r.id
+                      ? "bg-accent text-accent-foreground border-accent"
+                      : "bg-background text-white border-border hover:border-accent/50"
+                      }`}
                   >
                     {r.label}
                     <span
-                      className={`block text-[10px] font-normal normal-case mt-0.5 ${
-                        role === r.id ? "text-accent-foreground/70" : "text-muted-foreground"
-                      }`}
+                      className={`block text-[10px] font-normal normal-case mt-0.5 ${role === r.id ? "text-accent-foreground/70" : "text-muted-foreground"
+                        }`}
                     >
                       {r.description}
                     </span>

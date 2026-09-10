@@ -2,8 +2,8 @@
 
 :root {
   --background: #0a1834;
-  --foreground: #f4f4f5;
-  --primary: #0069b0;
+  --foreground: #ffffff;
+  --primary: #ffffff;
   --primary-foreground: #ffffff;
   --accent: #f5b942;
   --accent-foreground: #1a1204;
@@ -78,7 +78,12 @@ body {
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #ffe8ab 0%, var(--accent) 55%, #d99420 100%);
+  background: linear-gradient(
+    135deg,
+    #ffe8ab 0%,
+    var(--accent) 55%,
+    #d99420 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -86,20 +91,37 @@ body {
 
 .bg-radial-glow {
   background:
-    radial-gradient(60% 50% at 15% 0%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 70%),
-    radial-gradient(50% 45% at 100% 10%, color-mix(in srgb, var(--secondary) 18%, transparent) 0%, transparent 70%);
+    radial-gradient(
+      60% 50% at 15% 0%,
+      color-mix(in srgb, var(--accent) 16%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      50% 45% at 100% 10%,
+      color-mix(in srgb, var(--secondary) 18%, transparent) 0%,
+      transparent 70%
+    );
 }
 
 .bg-grid-lines {
   background-image:
-    linear-gradient(color-mix(in srgb, var(--foreground) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--foreground) 4%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      color-mix(in srgb, var(--foreground) 4%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--foreground) 4%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 40px 40px;
   mask-image: radial-gradient(70% 60% at 50% 0%, black 0%, transparent 75%);
 }
 
 .shadow-card {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 32px -16px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 12px 32px -16px rgba(0, 0, 0, 0.45);
 }
 
 .shadow-glow-accent {
@@ -107,7 +129,10 @@ body {
 }
 
 .hover-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 .hover-lift:hover {
   transform: translateY(-3px);
@@ -128,9 +153,6 @@ body {
   animation: fade-up 0.5s ease both;
 }
 
-/* Light, white-space canvas for the operational dashboards (Admin, Coach,
-   Player, Delegate). Login/Signup/Register and the public site stay on the
-   dark navy tokens above — this class only wraps the 4 dashboard pages. */
 .dash-light {
   --background: #f4f6f9;
   --foreground: #101c2c;
